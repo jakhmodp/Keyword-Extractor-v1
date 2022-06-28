@@ -252,10 +252,10 @@ def main():
             if raw_text_file is None:
                 st.error("No file provided")
             else:
-                if raw_text_file.type not in ['text/plain', 'application/octet-stream']:
+                if raw_text_file.type not in ['text/plain', 'application/octet-stream','application/vnd.openxmlformats-officedocument.wordprocessingml.document']:
                     st.info(f"Invalid file type! {raw_text_file.type}")
                 else:
-                    if raw_text_file.type == 'application/octet-stream':
+                    if raw_text_file.type in ['application/octet-stream','application/vnd.openxmlformats-officedocument.wordprocessingml.document']:
                         raw_text = docx2txt.process(raw_text_file)
                         show_content(kw_method, raw_text)
                     elif raw_text_file.type == 'text/plain':
