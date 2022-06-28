@@ -7,7 +7,6 @@ import about
 import nltk
 nltk.download('punkt')
 
-import keywordExtractor_functions
 import keywordExtractor_functions as KeyFunc
 from nltk import sent_tokenize, word_tokenize
 
@@ -74,7 +73,7 @@ def show_content(kw_method, raw_text):
     if kw_method == 'TextRank':
         if len(raw_text) > 0:
             clean_text = KeyFunc.textclean(raw_text)
-            dataset = keywordExtractor_functions.extract_textrank(clean_text, kw_top_n)
+            dataset = KeyFunc.extract_textrank(clean_text, kw_top_n)
 
     elif kw_method == 'TFIDF':
         if len(raw_text) > 0:
@@ -86,7 +85,7 @@ def show_content(kw_method, raw_text):
     elif kw_method == 'Spacy POS-based':
         if len(raw_text) > 0:
             clean_text = KeyFunc.textclean(raw_text)
-            dataset = keywordExtractor_functions.extract_spacy(clean_text, kw_top_n)
+            dataset = KeyFunc.extract_spacy(clean_text, kw_top_n)
 
 
     elif kw_method == 'KeyBERT':
@@ -263,5 +262,10 @@ def main():
 
 
 
+
+
+
+
 if __name__ == '__main__':
     main()
+
