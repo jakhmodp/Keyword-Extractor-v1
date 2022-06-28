@@ -103,8 +103,6 @@ PyPDF2==2.3.1
 pyrsistent==0.18.1
 python-pptx==0.6.21
 pytz-deprecation-shim==0.1.0.post0
-pywin32==304
-pywinpty==2.0.5
 PyYAML==6.0
 pyzmq==23.2.0
 rake-nltk==1.0.6
