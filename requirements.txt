@@ -81,8 +81,6 @@ olefile==0.46
 pandocfilters==1.5.0
 parso==0.8.3
 pathy==0.6.1
-pdfminer.six==20191110
-pdfplumber==0.7.1
 pickleshare==0.7.5
 Pillow==9.1.1
 platformdirs==2.5.2
@@ -99,7 +97,6 @@ pydantic==1.8.2
 pydeck==0.7.1
 Pygments==2.12.0
 Pympler==1.0.1
-PyPDF2==2.3.1
 pyrsistent==0.18.1
 python-pptx==0.6.21
 pytz-deprecation-shim==0.1.0.post0
