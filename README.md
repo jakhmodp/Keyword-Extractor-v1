@@ -39,3 +39,8 @@ In the bottom of the screen, a section 'output text' is provided which shows hig
 
 # Python Environment
 python-3.8.13
+
+# Issues faced during deployment
+1. Deployment on Heroku has been unsuccessfully with error logs: 'nltk.txt' not found, not downloading any corpora
+2. Deployment was successful on Streamlit. 
+3. While using Pycharm IDE, word cloud library continued to fail when 'virtual envrionment' was used. However, it worked with conda environment.
