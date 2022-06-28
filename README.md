@@ -35,3 +35,7 @@ In the bottom of the screen, a section 'output text' is provided which shows hig
 ![image](https://user-images.githubusercontent.com/93132125/176247829-9f92465e-3760-4b01-a1ec-8cc41f7726b4.png)
 ![image](https://user-images.githubusercontent.com/93132125/176247941-0b66b85a-d4e9-445d-aaa5-919fb5951a17.png)
 ![image](https://user-images.githubusercontent.com/93132125/176248134-62f4224e-6135-437a-b39f-2f138edf95aa.png)
+
+
+# Python Environment
+python-3.8.13
