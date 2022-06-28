@@ -279,10 +279,8 @@ def main():
         with output_expander:
             st.markdown(about.output)
 
-
-
-
-
+        st.subheader("Code")
+        st.markdown("""Please refer the code repository: https://github.com/jakhmodp/Keyword-Extractor-v1.git""")
 
 
 if __name__ == '__main__':
