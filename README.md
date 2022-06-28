@@ -41,6 +41,15 @@ In the bottom of the screen, a section 'output text' is provided which shows hig
 python-3.8.13
 
 # Issues faced during deployment
-1. Deployment on Heroku has been unsuccessfully with error logs: 'nltk.txt' not found, not downloading any corpora
+1. Deployment on Heroku has been unsuccessfully with error logs: 
+  -----> Downloading NLTK corpora…
+ !     'nltk.txt' not found, not downloading any corpora
+ !     Learn more: https://devcenter.heroku.com/articles/python-nltk
+-----> Discovering process types
+       Procfile declares types -> web
+-----> Compressing...
+ !     Compiled slug size: 2G is too large (max is 500M).
+ !     See: http://devcenter.heroku.com/articles/slug-size
+ !     Push failed
 2. Deployment was successful on Streamlit. 
 3. While using Pycharm IDE, word cloud library continued to fail when 'virtual envrionment' was used. However, it worked with conda environment.
