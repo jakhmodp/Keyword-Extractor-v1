@@ -1,0 +1,31 @@
+# For Spacy model
+python -m spacy download en_core_web_lg
+python -m spacy download en_core_web_sm
+python -m spacy download en
+
+# Pip upgrade
+python.exe -m pip install --upgrade pip
+
+# Wordcloud gives wheel issue with 3.8 and above versions when using Virtual environemnt. So use 'conda environment'
+# On Heroku, pywin32==304 version had issue,
+
+#pip installs
+docx2txt==0.8
+en-core-web-lg @ https://github.com/explosion/spacy-models/releases/download/en_core_web_lg-3.3.0/en_core_web_lg-3.3.0-py3-none-any.whl
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.3.0/en_core_web_sm-3.3.0-py3-none-any.whl
+keybert==0.5.1
+matplotlib==3.5.2
+matplotlib-inline==0.1.3
+neattext==0.1.3
+nltk==3.7
+rake-nltk==1.0.6
+regex==2022.6.2
+scikit-learn==1.1.1
+spacy==3.3.1
+streamlit==1.10.0
+wordcloud==1.8.1
+yake==0.4.8
+zipp==3.8.0
+gunicorn==20.1.0
+
+
