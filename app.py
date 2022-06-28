@@ -4,9 +4,13 @@ import pandas as pd
 import templates
 import about
 
-import keywordExtractor_functions
+import nltk
+nltk.download('punkt')
+
 import keywordExtractor_functions as KeyFunc
 from nltk import sent_tokenize, word_tokenize
+import re
+from neattext import functions as fxn
 
 # File processing packages
 import docx2txt
@@ -22,6 +26,23 @@ from wordcloud import WordCloud
 
 # NLP packages
 from collections import Counter
+
+def textclean(text):
+    ct = text.lower()
+    ct = fxn.remove_emails(ct)
+    ct = fxn.remove_html_tags(ct)
+    ct = fxn.remove_urls(ct)
+    ct = re.sub('[^a-zA-Z\.]', ' ', ct)
+    ct = fxn.remove_multiple_spaces(ct)
+    ct = fxn.remove_stopwords(ct)
+    ct = fxn.remove_userhandles(ct)
+    ct = re.sub(r'\.\s\.', '.', ct)
+    ct = re.sub('\.+', '.', ct)
+    ct = sent_tokenize(ct)
+    ct = ' '.join([sent for sent in ct if len(sent) > 2])
+    #clean_text = [word for word in raw_text.split(" ") if word not in stopwords.words('english')]
+    return ct
+
 
 
 # Converting dictionary to DataFrame
@@ -70,45 +91,45 @@ def show_content(kw_method, raw_text):
 
     if kw_method == 'TextRank':
         if len(raw_text) > 0:
-            clean_text = KeyFunc.textclean(raw_text)
-            dataset = keywordExtractor_functions.extract_textrank(clean_text, kw_top_n)
+            clean_text = textclean(raw_text)
+            dataset = KeyFunc.extract_textrank(clean_text, kw_top_n)
 
     elif kw_method == 'TFIDF':
         if len(raw_text) > 0:
-            clean_text = KeyFunc.textclean(raw_text)
+            clean_text = textclean(raw_text)
             list_of_sents = sent_tokenize(clean_text)
             dataset = KeyFunc.extract_TFIDF(list_of_sents, kw_top_n)
 
 
     elif kw_method == 'Spacy POS-based':
         if len(raw_text) > 0:
-            clean_text = KeyFunc.textclean(raw_text)
-            dataset = keywordExtractor_functions.extract_spacy(clean_text, kw_top_n)
+            clean_text = textclean(raw_text)
+            dataset = KeyFunc.extract_spacy(clean_text, kw_top_n)
 
 
     elif kw_method == 'KeyBERT':
         if len(raw_text) > 0:
-            clean_text = KeyFunc.textclean(raw_text)
+            clean_text = textclean(raw_text)
             dataset = KeyFunc.extract_keybert(clean_text, kw_top_n)
 
 
     elif kw_method == 'Yake':
         if len(raw_text) > 0:
-            clean_text = KeyFunc.textclean(raw_text)
+            clean_text = textclean(raw_text)
             list_of_sents = sent_tokenize(clean_text)
             dataset = KeyFunc.extract_TFIDF(list_of_sents, kw_top_n)
 
 
     elif kw_method == 'Rake':
         if len(raw_text) > 0:
-            clean_text = KeyFunc.textclean(raw_text)
+            clean_text = textclean(raw_text)
             list_of_sents = sent_tokenize(clean_text)
             dataset = KeyFunc.extract_TFIDF(list_of_sents, kw_top_n)
 
 
     else:
         if len(raw_text) > 0:
-            clean_text = KeyFunc.textclean(raw_text)
+            clean_text = textclean(raw_text)
             word_list = [word for word in word_tokenize(clean_text) if len(word) > 2]
             keywords_in_text = Counter(word_list)
             # st.write(keywords_in_text)
@@ -142,9 +163,11 @@ def show_content(kw_method, raw_text):
         stc.html(htmltext, height=250, scrolling=True)
 
 def main():
-
-
     st.set_page_config(layout="wide")
+    st.sidebar.image(
+        "https://res.cloudinary.com/crunchbase-production/image/upload/c_lpad,f_auto,q_auto:eco,dpr_1/z3ahdkytzwi1jxlpazje",
+        width=50,
+    )
     image = Image.open('banner.JPG')
     st.image(image)
 
