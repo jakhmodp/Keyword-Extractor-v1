@@ -4,9 +4,7 @@ import yake
 import pandas as pd
 import re
 from neattext import functions as fxn
-from nltk.tokenize import sent_tokenize, word_tokenize
-import nltk
-from nltk.corpus import stopwords
+from nltk.tokenize import sent_tokenize
 from keybert import KeyBERT
 from collections import Counter
 import spacy
